@@ -17,7 +17,7 @@ This Project was carried out as part of my [bachelor thesis (German)](https://ep
 ## Build
 
 ### Dependencies
-#### OpenCV
+#### OpenCV  3.4.5
 Download the OpenCV Android SDK and exctract it somewhere. 
 Edit the {path} in the file 
 
@@ -63,7 +63,7 @@ This may take some time. You can accelerate the process with the -jN parameter w
 As the result there should be generated a "obj/local" directory in the "ceres-solver" folder with one libceres.a file for each selected APP_ABI in it.
 
 
-### Android Studio
+### Android Studio   3.6.3  NDK 16.1.4479499
 
 Open the VINS_Mobile_AndroidPort folder as an Android Studio Project. Android Studio will generate all missing files and throw an error like this one:
 
@@ -80,3 +80,5 @@ For more details on the calibration procedure see my bachelor thesis.
 The parameters are located in the file 
 
 *VINS_Mobile_AndroidPort\app\libs\VINS-Mobile-master\VINS_ios\global_param.cpp*.
+
+

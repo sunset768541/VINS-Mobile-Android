@@ -13,8 +13,10 @@ import android.hardware.camera2.CaptureRequest;
 import android.media.ImageReader;
 import android.os.Handler;
 import android.os.HandlerThread;
-import android.support.v4.content.ContextCompat;
 import android.view.Surface;
+
+import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -77,13 +79,20 @@ public class JavaCamera {
         threadHandler.start();
         cameraHandler = new Handler(threadHandler.getLooper());
     }
-
-    private CameraCaptureSession.StateCallback sessionStateCallback = new CameraCaptureSession.StateCallback() {
+        private CameraCaptureSession.StateCallback sessionStateCallback = new CameraCaptureSession.StateCallback() {
         @Override
         public void onConfigured(CameraCaptureSession session) {
             try {
+                //if this session is no longer active, either because the session was explicitly closed
+                // , a new session has been created or the camera device has been closed.
                 session.setRepeatingRequest(captureBuilder.build(), null, cameraHandler);
+
             } catch (CameraAccessException e) {
+                e.printStackTrace();
+            } catch (IllegalStateException e) {
+                //CameraDevice was already closed
+                e.printStackTrace();
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }
@@ -92,6 +101,11 @@ public class JavaCamera {
         public void onConfigureFailed(CameraCaptureSession session) {
 
         }
+            @Override
+            public void onClosed(@NonNull CameraCaptureSession session) {
+                super.onClosed(session);
+
+            }
     };
 
     private CameraDevice.StateCallback cameraDeviceStateCallback = new CameraDevice.StateCallback() {

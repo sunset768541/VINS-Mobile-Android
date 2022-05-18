@@ -19,6 +19,7 @@ enum DeviceType
     iPadPro129,
     GalaxyS7,
     Mix2,
+    Mi6,
     unDefine
 };
 //extrinsic param

@@ -946,7 +946,7 @@ DeviceType ViewController::deviceName() {
 //DeviceType deviceName()
 //{
     // Added devicetype Galaxy S7
-    return DeviceType::Mix2;
+    return DeviceType::Mi6;
     /*
     struct utsname systemInfo;
     uname(&systemInfo);

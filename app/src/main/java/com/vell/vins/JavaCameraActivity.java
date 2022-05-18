@@ -20,16 +20,18 @@ import android.media.Image;
 import android.media.ImageReader;
 import android.os.Bundle;
 import android.os.Environment;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
+
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import com.thkoeln.jmoeller.vins_mobile_androidport.R;
 
@@ -50,6 +52,11 @@ public class JavaCameraActivity extends Activity {
     private static final int PERMISSIONS_REQUEST_CODE = 12345;
     private final int imageWidth = 640;
     private final int imageHeight = 360;
+
+//      intrinsics: [503.0487982785, 504.8504858465014, 310.61335388268935, 242.40294191231038]
+//  resolution: [640, 480]
+//  rostopic: /camera/image_raw
+//  timeshift_cam_imu: -0.06440866313365332
     private ImageReader imageReader;
     private JavaCamera javaCamera;
     private Vins vins;
@@ -69,7 +76,7 @@ public class JavaCameraActivity extends Activity {
             if (image == null) {
                 return;
             }
-//            Log.i(TAG,"get new image, height: " + image.getHeight() + " width: " + image.getWidth());
+            Log.i(TAG,"get new image, height: " + image.getHeight() + " width: " + image.getWidth());
             Mat originMat = ImageUtils.getMatFromImage(image);
 
             if (vins != null) {

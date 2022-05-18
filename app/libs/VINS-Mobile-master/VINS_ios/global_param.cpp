@@ -159,6 +159,25 @@ bool setGlobalParam(DeviceType device)
             TIC_Z = -0.01505; //-0.018792; // up when in landscape (right when normal)
             return true;
             break;
+        case Mi6:
+            printf("Device Mi6 param\n");
+            FOCUS_LENGTH_X = 485.34279583;
+            FOCUS_LENGTH_Y =  488.11528538;
+//            PX = 322.14508;
+//            PY = 177.33389;
+            PX =  174.7582322;
+            PY = 310.45025175;
+
+            SOLVER_TIME =  0.06; // 0.06 TODO
+            FREQ = 3;
+
+            //extrinsic param
+            // TIC = Translation IMU to Camera
+            TIC_X = 0.0; // view direction
+            TIC_Y = -0.0045; //-0.005 // to the left when device is in landscape (up when normal)
+            TIC_Z = -0.01505; //-0.018792; // up when in landscape (right when normal)
+            return true;
+            break;
         case unDefine:
             return false;
             break;

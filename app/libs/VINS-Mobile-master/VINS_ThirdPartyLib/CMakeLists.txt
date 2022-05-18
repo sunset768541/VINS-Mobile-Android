@@ -1,4 +1,4 @@
-set(boost_include_dir /home/vell/workspace/boost_1_63_0/)
+set(boost_include_dir /Users/sunset/work/Project/newvma/boost_1_63_0)
 add_library(boost_LIB INTERFACE)
 target_include_directories(
     boost_LIB
